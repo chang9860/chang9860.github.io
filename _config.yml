@@ -1,4 +1,4 @@
-# Welcome to Jekyll!
+﻿# Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your entire site, values
 # which you are expected to set up once and rarely need to edit after that.
@@ -15,13 +15,13 @@
 minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "ko-KR"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "My research blog"
+title                    : "Changhyeon Ahn | AI Portfolio"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Changhyeon Ahn"
-description              : "a blog for research in AI and machine learning"
+description              : "AI portfolio, research notes, paper summaries, and project devlogs"
 url                      : "https://chang9860.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "chang9860/chang9860.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -115,16 +115,16 @@ analytics:
 author:
   name             : "Changhyeon Ahn"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I'll be an **amazing** researcher."
+  bio              : "Documenting AI/ML research and projects."
   location         : "South Korea 🇰🇷"
   email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
       # url: "mailto:your.name@email.com"
-    - label: "Website"
+    - label: "CV"
       icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
+      url: "/cv/"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -134,9 +134,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/chang9860"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+    - label: "Research"
+      icon: "fas fa-fw fa-flask"
+      url: "/research/"
 
 # Site Footer
 footer:

@@ -1,4 +1,99 @@
 ---
 layout: home
 author_profile: true
+title: "Home"
 ---
+
+<section class="home-hero">
+  <h2>About</h2>
+  <p>Personal site for AI/ML research, portfolio projects, and devlogs.</p>
+  <p>
+    <a class="btn btn--primary" href="/projects/">View Portfolio</a>
+    <a class="btn btn--info" href="/cv/">Read CV</a>
+  </p>
+</section>
+
+{% assign latest_portfolio = site.categories.Portfolio %}
+{% assign latest_research = site.categories.Research %}
+{% assign latest_devlog = site.categories.Devlog %}
+{% if latest_portfolio %}
+  {% assign latest_portfolio = latest_portfolio | sort: "date" | reverse | slice: 0, 3 %}
+{% else %}
+  {% assign latest_portfolio = "" | split: "" %}
+{% endif %}
+{% if latest_research %}
+  {% assign latest_research = latest_research | sort: "date" | reverse | slice: 0, 3 %}
+{% else %}
+  {% assign latest_research = "" | split: "" %}
+{% endif %}
+{% if latest_devlog %}
+  {% assign latest_devlog = latest_devlog | sort: "date" | reverse | slice: 0, 3 %}
+{% else %}
+  {% assign latest_devlog = "" | split: "" %}
+{% endif %}
+
+<section class="home-section">
+  <div class="home-section-head">
+    <h2>Featured Portfolio</h2>
+    <a href="/projects/">See all</a>
+  </div>
+  <div class="home-grid">
+    {% for post in latest_portfolio %}
+      <article class="home-card">
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="home-card-meta">{{ post.date | date: site.date_format | default: "%Y-%m-%d" }}</p>
+        {% if post.stack %}
+          <p class="home-card-meta">Stack: {{ post.stack | join: ", " }}</p>
+        {% endif %}
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      </article>
+    {% endfor %}
+    {% if latest_portfolio.size == 0 %}
+      <article class="home-card">
+        <p>No portfolio posts yet.</p>
+      </article>
+    {% endif %}
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section-head">
+    <h2>Recent Research</h2>
+    <a href="/research/">See all</a>
+  </div>
+  <div class="home-grid">
+    {% for post in latest_research %}
+      <article class="home-card">
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="home-card-meta">{{ post.date | date: site.date_format | default: "%Y-%m-%d" }}</p>
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      </article>
+    {% endfor %}
+    {% if latest_research.size == 0 %}
+      <article class="home-card">
+        <p>No research posts yet.</p>
+      </article>
+    {% endif %}
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="home-section-head">
+    <h2>Recent Devlog</h2>
+    <a href="/blog/">See all</a>
+  </div>
+  <div class="home-grid">
+    {% for post in latest_devlog %}
+      <article class="home-card">
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p class="home-card-meta">{{ post.date | date: site.date_format | default: "%Y-%m-%d" }}</p>
+        <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      </article>
+    {% endfor %}
+    {% if latest_devlog.size == 0 %}
+      <article class="home-card">
+        <p>No devlog posts yet.</p>
+      </article>
+    {% endif %}
+  </div>
+</section>
