@@ -30,3 +30,9 @@ Selected portfolio projects.
 {% else %}
 No portfolio posts yet.
 {% endif %}
+
+## OS Lecture Notes
+
+Operating Systems lecture notes by chapter.
+
+- [Chapter 1 - Introduction to Operating Systems](/devlog/os-ch01-introduction-to-operating-systems/)
