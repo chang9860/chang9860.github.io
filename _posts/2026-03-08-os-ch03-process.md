@@ -57,7 +57,7 @@ degree of Multiprogramming을 제어<br>
 
 Thread의 구성
 - program counter
-- registe set
+- register set
 - stack space
 
 Thread가 동료 Thread와 공유하는 부분
