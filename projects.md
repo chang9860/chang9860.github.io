@@ -33,6 +33,15 @@ No portfolio posts yet.
 
 ## OS Lecture Notes
 
-Operating Systems lecture notes by chapter.
+반효경 운영체제 강의 챕터별 정리 노트입니다.
 
-- [Chapter 1 - Introduction to Operating Systems](/devlog/os-ch01-introduction-to-operating-systems/)
+{% assign os_notes = site.posts | where_exp: "post", "post.tags contains 'ban-hyokyung-os'" | sort: "date" %}
+{% if os_notes.size > 0 %}
+<ul>
+  {% for post in os_notes %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+No OS lecture notes yet.
+{% endif %}
