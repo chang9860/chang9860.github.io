@@ -3,11 +3,15 @@ title: "OS CH03 - Process"
 date: 2026-03-08
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch03]
+permalink: /devlog/os-ch03-process/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 3
 excerpt: "Chapter 3 summary: 프로세스의 개념, 프로세스의 상태(Process State), 프로세스의 개념, 프로세스 상태도, Process Control Block(PCB), 문맥교환(Context Switch), 프로세스를 스케줄링하기 위한 큐, Ready Queue와 다양한 Device Queue, 스케줄러(Scheduler), 프로세스 스케줄링 큐의 모습, Thread, Single and Multithreaded Processes, Benefits of Threads, Implemetation of Threads"
 ---
 
 ## 1. 프로세스의 개념
-![process_concept](/assets\images\ban-hyokyung-os\process_concept.png)<br>
+![process_concept](/assets/images/ban-hyokyung-os/process_concept.png)<br>
 : 프로세스는 프로그램의 실행이다.<br>
 프로세스의 문맥  
 * cpu 상태를 나타내는 하드웨어 문맥<br> program counter(PC), 각종 register
@@ -17,7 +21,7 @@ code, data, stack
 PCB, kernel stack 
 
 ## 2. 프로세스의 상태
-![process_state](/assets\images\ban-hyokyung-os\process_state.png)
+![process_state](/assets/images/ban-hyokyung-os/process_state.png)
 * Running: cpu를 잡고 instruction 실행중인 상태
 * Ready: cpu 받기를 기다리는 상태
 * Blocked: cpu 받아도 instruction 실행 못하는 상태 ex. I/O 요청을 하고 기다리는 상태 --> 자신이 요청한 event가 완료되면 다시 Ready.
@@ -29,7 +33,7 @@ PCB, kernel stack
 : cpu를 한 프로세스에서 다른 프로세스로 넘겨주는 일(기존의 프로세스 상태를 그 프로세스의 pcb에 저장하고 다른 프로세스의 pcb를 읽어온다.)
 
 PCB 구조도
-![PCB](/assets\images\ban-hyokyung-os\PCB.png)
+![PCB](/assets/images/ban-hyokyung-os/PCB.png)
 
 주의: System call이나 interrupt가 발생시 반드시 context switch가 일어나는 것은 아님
 -> 사용자 프로그램이 interrupt or system call을 한 뒤 커널 모드에서 그에 맞는 함수 실행 뒤 context switch 없이 기존 사용자 프로그램 복귀
@@ -53,7 +57,7 @@ degree of Multiprogramming을 제어<br>
 **최근 트렌드!**
 
 ## 6. Thread
-![thread](/assets\images\ban-hyokyung-os\thread.png)<br>
+![thread](/assets/images/ban-hyokyung-os/thread.png)<br>
 
 Thread의 구성
 - program counter

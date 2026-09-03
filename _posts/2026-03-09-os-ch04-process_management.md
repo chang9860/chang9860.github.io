@@ -3,6 +3,10 @@ title: "OS CH04 - Process Management"
 date: 2026-03-09
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch04]
+permalink: /devlog/os-ch04-process_management/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 4
 excerpt: "Chapter 4 summary: 프로세스 생성(Process Creation), 프로세스와 관련한 시스템콜, 프로세스 간 협력, Message Passing, Interprocess communication, CPU and I/O Bursts in Program Execution, CPU-burst Time의 분포, 프로세스의 특성 분류"
 ---
 
@@ -52,7 +56,7 @@ abort: 부모 프로세스가 자식의 수행을 종료시킴 --> 비자발적 
 * shared memory: 다른 프로세스와 일부 주소 공간 공유(처음은 운영체제의 허락이 있어야 가능.)
 
 ## 4. CPU, I/O Burst in program Execution
-![CPU_Burst](/assets\images\ban-hyokyung-os\CPU_Busrt.png)
+![CPU_Burst](/assets/images/ban-hyokyung-os/CPU_Busrt.png)
 CPU가 일하는 중간 중간 I/O Burst 발생
 I/O bound job: I/O 작업이 많이 발생하는 일(cpu bound job보다 자주 발생함)
 CPU bound job: I/O 인터럽트 방해 거의 없이 CPU 작업(계산)이 많은 일 

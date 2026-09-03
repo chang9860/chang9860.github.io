@@ -17,11 +17,11 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 # Site Settings
 locale                   : "ko-KR"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Changhyeon Ahn | AI Portfolio"
+title                    : "Changhyeon Ahn"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Changhyeon Ahn"
-description              : "AI portfolio, research notes, paper summaries, and project devlogs"
+description              : "Papers, experiments, projects, and notes from studying Computer Science, AI, and Software Engineering."
 url                      : "https://chang9860.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "chang9860/chang9860.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -115,7 +115,7 @@ analytics:
 author:
   name             : "Changhyeon Ahn"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Documenting AI/ML research and projects."
+  bio              : "University student studying computer science through papers, experiments, and software projects."
   location         : "South Korea 🇰🇷"
   email            : 
   links:
@@ -149,7 +149,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      # url:
+      url: "https://github.com/chang9860"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -194,6 +194,7 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  - /_templates # writing templates are repository-only
 keep_files:
   - .git
   - .svn
@@ -314,6 +315,12 @@ compress_html:
 # 날짜 포맷 설정 (전역)
 date_format: "%Y-%m-%d"   # 출력 예: 2026-01-04
 
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
 # Defaults
 defaults:
   # _posts
@@ -328,5 +335,13 @@ defaults:
       share: true
       related: true
       show_date: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
 
 

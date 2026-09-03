@@ -1,0 +1,45 @@
+{% assign entry = include.entry %}
+{% assign entry_type = entry.research_type | default: entry.project_type | default: entry.devlog_type %}
+{% assign entry_code_url = entry.code_url | default: entry.repo_url %}
+<article class="content-card">
+  {% if entry.header.teaser %}
+    <a class="content-card__teaser" href="{{ entry.url | relative_url }}">
+      <img src="{{ entry.header.teaser | relative_url }}" alt="">
+    </a>
+  {% endif %}
+  <div class="content-card__body">
+    {% if include.show_type and entry_type %}
+      <span class="content-type-badge">{{ entry_type | replace: "-", " " }}</span>
+    {% endif %}
+    <h3 class="content-card__title">
+      <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+    </h3>
+    <p class="content-card__meta">
+      {% if entry.date %}{{ entry.date | date: site.date_format | default: "%Y-%m-%d" }}{% endif %}
+      {% if entry.period %}{% if entry.date %}<span aria-hidden="true"> · </span>{% endif %}{{ entry.period }}{% endif %}
+      {% if entry.status %}<span aria-hidden="true"> · </span>{{ entry.status | replace: "-", " " }}{% endif %}
+    </p>
+    {% if entry.excerpt %}
+      <p>{{ entry.excerpt | markdownify | strip_html | truncate: 180 }}</p>
+    {% endif %}
+    {% if include.show_role and entry.role %}
+      <p class="content-card__meta"><strong>Role:</strong> {{ entry.role }}</p>
+    {% endif %}
+    {% if include.show_stack and entry.stack %}
+      <p class="content-card__meta"><strong>Stack:</strong> {{ entry.stack | join: ", " }}</p>
+    {% endif %}
+    {% if entry.tags %}
+      <p class="content-card__tags">
+        {% for tag in entry.tags limit: 4 %}<span>{{ tag }}</span>{% endfor %}
+      </p>
+    {% endif %}
+    {% if include.show_links %}
+      <p class="content-card__links">
+        <a href="{{ entry.url | relative_url }}">Details</a>
+        {% if entry_code_url %}<a href="{{ entry_code_url }}">Code</a>{% endif %}
+        {% if entry.demo_url %}<a href="{{ entry.demo_url }}">Demo</a>{% endif %}
+        {% if entry.paper_url %}<a href="{{ entry.paper_url }}">Paper</a>{% endif %}
+      </p>
+    {% endif %}
+  </div>
+</article>

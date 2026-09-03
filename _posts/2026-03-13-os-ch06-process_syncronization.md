@@ -3,6 +3,10 @@ title: "OS CH06 - Process Syncronization"
 date: 2026-03-13
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch06]
+permalink: /devlog/os-ch06-process_syncronization/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 6
 excerpt: "Chapter 6 summary: 데이터의 접근, Race Condition, OS에서의 race condition(3/3), Example of a Race Condition, The Critical-Section Problem, OS에서 race condition(1/3), If you preempt CPU while in kernel mode…, Initial Attempts to Solve Problem, 프로그램적 해결법의 충족조건, Algorithm 1, Algorithm2, Algorithm3(Peterson's Algorithm), Synchronization Hardware, Semaphores 등등"
 ---
 
@@ -21,16 +25,16 @@ ex.
 3. Bounded Waiting: 프로세스가 들어가고 싶다고 요청한 후부터 요청이 수학될 때까지 다른 프로세스가 critical section에 들어가는 횟수가 제한되어야 한다.
 
 Algorithm 1
-![Algorithm_1](/assets\images\ban-hyokyung-os\Algorithm1.png)
+![Algorithm_1](/assets/images/ban-hyokyung-os/Algorithm1.png)
 문제점: 두 프로세스의 진입하려는 시도 횟수가 차이가 날 때 turn을 바꾸지 못하는 문제가 있다.
 (Progress 불만족)
 
 Algorithm 2
-![Algorithm_2](/assets\images\ban-hyokyung-os\Algorithm2.png)
+![Algorithm_2](/assets/images/ban-hyokyung-os/Algorithm2.png)
 문제점: 둘 다 2행까지 수행하게 된다면 서로 무한 양보하게 된다.(Progress 불만족)
 
 Algorithm 3(Peterson's Algorithm)
-![Algorithm_3](/assets\images\ban-hyokyung-os\Algorithm3.png)
+![Algorithm_3](/assets/images/ban-hyokyung-os/Algorithm3.png)
 모두 만족하지만 Busy Waiting(=spin lock) 문제가 있음.(계속 CPU와 memory를 쓰면서 대기)
 
 하드웨어적 해결:
@@ -45,7 +49,7 @@ test&modify를 atomic하게 한번에 수행할 수 있도록 지원한다면 �
 해결방법: Block&Wake up  
 block: 프로세스를 wait 큐에 넣는다.
 wake up: 프로세스를 ready 큐에 넣는다.   
-![semaphore](/assets\images\ban-hyokyung-os\semaphore.png) 
+![semaphore](/assets/images/ban-hyokyung-os/semaphore.png)
 V(S)에서는 <= 0 인 이유: P(S)에서 1을 빼고 시작하기 때문이다.
 
 Two type of Semaphores
@@ -60,17 +64,17 @@ Starvation: 프로세스가 세마포어 ready 큐에서 계속 뒤로 밀려 �
 
 ## 5. Classical Problems of Synchronization
 1. Bounded-Buffer Problem(Producer-Consumer Problem)
-![bounded-buffer-problem](/assets\images\ban-hyokyung-os\bounded-buffer.png)
+![bounded-buffer-problem](/assets/images/ban-hyokyung-os/bounded-buffer.png)
 공유된 buffer에 동시 접근, 또는 buffer가 가득찼는데 더 넣거나 없는데 꺼내려 하는 문제 발생. 생산자와 소비자 모두 행위를 할 때 mutex = 1를 이용하여 lock,unlock을 한다.
 2. Readers and Writers Problem
-![Readers-writers-problem](/assets\images\ban-hyokyung-os\readers-writers-problem.png)
+![Readers-writers-problem](/assets/images/ban-hyokyung-os/readers-writers-problem.png)
 Reader는 여러명 가능, 문제점: writer가 기다리고 있을 때 reader가 계속 들어오면 starvation 발생 가능.(해결법: 일정 시간이 지나면 writer에게 넘겨지도록)
 3. Dining-Philosophers Problem
-![philosophers-problem](/assets\images\ban-hyokyung-os\philosophers-problem.png)
+![philosophers-problem](/assets/images/ban-hyokyung-os/philosophers-problem.png)
 젓가락 집기 전 test로 먹을 수 있는 상태인지 확인하고 아니면 대기한다. 자신이 먹는게 끝났다면 이웃에게도 기회를 준다.
 
 ## 6. Monitor
 모니터 내의 여러 프로세스 중에서 한번에 1개만 실행 가능하다. --> 프로그래머가 동기화 제약 코드 작성 불필요  
 condition variable 사용(wait, signal)  
 ex. buffer 문제 적용
-![monitor-buffer](/assets\images\ban-hyokyung-os\monitor-buffer.png)
+![monitor-buffer](/assets/images/ban-hyokyung-os/monitor-buffer.png)

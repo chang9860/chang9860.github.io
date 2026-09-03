@@ -1,29 +1,38 @@
 ---
-title: "Project Devlog"
+title: "Devlog"
 layout: single
 permalink: /blog/
 author_profile: true
 ---
 
-Project development log and iteration notes.
+Notes from studying computer science and building software: concepts, implementation details, debugging, frameworks, systems, languages, and engineering practices.
 
-Use this writing template: [Devlog Template](/devlog-template/)
+{% assign os_notes = site.posts | where: "series", "ban-hyokyung-os" | sort: "series_order" %}
+{% if os_notes.size > 0 %}
+## Series
 
-{% assign devlog_posts = site.categories.Devlog %}
-{% if devlog_posts %}
-{% assign devlog_posts = devlog_posts | sort: "date" | reverse %}
+### Operating Systems Lecture Notes
+
+반효경 운영체제 강의의 챕터별 학습 기록입니다.
+
+<ol class="series-list">
+  {% for post in os_notes %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ol>
 {% endif %}
-{% if devlog_posts and devlog_posts.size > 0 %}
-{% for post in devlog_posts %}
-### [{{ post.title }}]({{ post.url }})
-<small>{{ post.date | date: site.date_format | default: "%Y-%m-%d" }}</small>
-{% if post.project %}<small> | Project: {{ post.project }}</small>{% endif %}
-{% if post.sprint %}<small> | Sprint: {{ post.sprint }}</small>{% endif %}
 
-{{ post.excerpt }}
+{% assign devlog_posts = site.posts | where_exp: "post", "post.categories contains 'Devlog'" | sort: "date" | reverse %}
+{% if devlog_posts.size > 0 %}
+## All Devlogs
 
----
-{% endfor %}
+<div class="content-grid content-grid--single">
+  {% for post in devlog_posts %}
+    {% include content-card.html entry=post show_type=true %}
+  {% endfor %}
+</div>
 {% else %}
-No devlog posts yet.
+<p class="empty-state">Devlog entries will appear here.</p>
 {% endif %}
+
+For future entries, see the [Devlog writing template]({{ '/devlog-template/' | relative_url }}).

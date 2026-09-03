@@ -1,47 +1,37 @@
 ---
-title: "Portfolio"
+title: "Projects"
 layout: single
 permalink: /projects/
 author_profile: true
 ---
 
-Selected portfolio projects.
+Projects are complete or presentable outcomes from personal work, courses, research prototypes, paper reproductions, open-source contributions, and team projects.
 
-{% assign portfolio_posts = site.categories.Portfolio %}
-{% if portfolio_posts %}
-{% assign portfolio_posts = portfolio_posts | sort: "date" | reverse %}
-{% endif %}
-{% if portfolio_posts and portfolio_posts.size > 0 %}
-{% for post in portfolio_posts %}
-<article class="home-card">
-  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <p class="home-card-meta">{{ post.date | date: site.date_format | default: "%Y-%m-%d" }}</p>
-  {% if post.role %}<p class="home-card-meta"><strong>Role:</strong> {{ post.role }}</p>{% endif %}
-  {% if post.period %}<p class="home-card-meta"><strong>Period:</strong> {{ post.period }}</p>{% endif %}
-  {% if post.stack %}<p class="home-card-meta"><strong>Stack:</strong> {{ post.stack | join: ", " }}</p>{% endif %}
-  <p>{{ post.excerpt | strip_html }}</p>
-  <p>
-    <a href="{{ post.url }}">Details</a>
-    {% if post.demo_url %} | <a href="{{ post.demo_url }}">Demo</a>{% endif %}
-    {% if post.repo_url %} | <a href="{{ post.repo_url }}">Code</a>{% endif %}
-  </p>
-</article>
-{% endfor %}
-{% else %}
-No portfolio posts yet.
-{% endif %}
+{% assign featured_projects = site.projects | where: "featured", true | sort: "featured_order" %}
+{% if featured_projects.size > 0 %}
+## Featured Projects
 
-## OS Lecture Notes
-
-반효경 운영체제 강의 챕터별 정리 노트입니다.
-
-{% assign os_notes = site.posts | where_exp: "post", "post.tags contains 'ban-hyokyung-os'" | sort: "date" %}
-{% if os_notes.size > 0 %}
-<ul>
-  {% for post in os_notes %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+<div class="content-grid">
+  {% for project in featured_projects %}
+    {% include content-card.html entry=project show_type=true show_role=true show_stack=true show_links=true %}
   {% endfor %}
-</ul>
+</div>
+{% endif %}
+
+{% assign all_projects = site.projects | sort: "title" %}
+{% assign other_projects = all_projects | where_exp: "project", "project.featured != true" %}
+{% if other_projects.size > 0 %}
+{% if featured_projects.size > 0 %}
+## More Projects
 {% else %}
-No OS lecture notes yet.
+## All Projects
+{% endif %}
+
+<div class="content-grid">
+  {% for project in other_projects %}
+    {% include content-card.html entry=project show_type=true show_role=true show_stack=true show_links=true %}
+  {% endfor %}
+</div>
+{% elsif all_projects.size == 0 %}
+<p class="empty-state">Project write-ups will be added as implementations reach a presentable stage.</p>
 {% endif %}

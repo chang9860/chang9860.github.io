@@ -6,29 +6,44 @@ author_profile: true
 ---
 
 ## Summary
-Focused on AI/ML problem-solving, experiment design, and automation.
+
+Computer science student interested in understanding ideas through reading, implementation, and experimentation. This site records that work across research notes, software projects, and development logs.
 
 ## Education
-- M.S. in Artificial Intelligence, Example University (2024-2026)
-- B.S. in Computer Science, Example University (2020-2024)
+
+Education details will be added here.
 
 ## Experience
-- Research Assistant, ML Lab (2024-Present)
-- AI Engineer Intern, Example Startup (2023)
 
-## Publications
-- Author, "Example Paper Title", 2026
-- Author, "Another Example Paper", 2025
+Experience details will be added here.
+
+## Selected Projects
+
+{% assign selected_projects = site.projects | where: "featured", true | sort: "featured_order" %}
+{% if selected_projects.size > 0 %}
+{% for project in selected_projects %}
+- [{{ project.title }}]({{ project.url | relative_url }}){% if project.role %} — {{ project.role }}{% endif %}
+{% endfor %}
+{% else %}
+Selected projects will be added as project write-ups are completed.
+{% endif %}
+
+## Research
+
+Paper reviews, reproductions, experiments, and research notes are available on the [Research page]({{ '/research/' | relative_url }}).
 
 ## Skills
-- Python, PyTorch, JAX
-- NLP, Computer Vision, Evaluation
-- MLOps, Experiment Tracking
+
+Technical skills will be listed here as the CV is updated.
+
+## Awards / Activities
+
+This section will be added when applicable.
 
 ## Links
-- [GitHub](https://github.com/chang9860)
-- [Research Page](/research/)
-- [Portfolio](/projects/)
 
-## Download
-- Upload your PDF to `assets/files/CV_Changhyeon_Ahn.pdf` to enable direct download.
+- [GitHub](https://github.com/chang9860)
+- [Research]({{ '/research/' | relative_url }})
+- [Projects]({{ '/projects/' | relative_url }})
+
+<!-- Add a PDF link here after uploading assets/files/CV_Changhyeon_Ahn.pdf. -->

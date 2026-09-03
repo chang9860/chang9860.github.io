@@ -1,8 +1,12 @@
 ---
 title: "OS CH07 - Deadlocks"
-date: 2026-03-20
+date: 2026-03-19
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch07]
+permalink: /devlog/os-ch07-deadlocks/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 7
 excerpt: "Chapter 7 summary: 교착상태(deadlock), The Deadlock Problem, Deadlock 발생의 4가지 조건, Resource-Allocation Graph(자원할당그래프), Deadlock Prevention, Deadlock의 처리 방법, Deadlock Avoidance, Resource Allocation Graph algorithm, Banker's Algorithm, Example of Banker's Algorithm, Deadlock Detection and Recovery, Deadlock Ignorance"
 ---
 
@@ -16,7 +20,7 @@ excerpt: "Chapter 7 summary: 교착상태(deadlock), The Deadlock Problem, Deadl
 4. Circular wait: 자원을 기다리는 프로세스 간 사이클이 형성되어야 함
 
 ## 3. 자원할당 그래프
-![자원할당_그래프](/assets\images\ban-hyokyung-os\Graph.png)
+![자원할당_그래프](/assets/images/ban-hyokyung-os/Graph.png)
 사이클이 없다면: deadlock 아님  
 사이클이 있다면: 자원당 instance가 하나면 deadlock이고 여러 개면 deadlock 가능성 있음(자원의 instance들이 모두 사이클에 관여하고 있으면 deadlock)
 
