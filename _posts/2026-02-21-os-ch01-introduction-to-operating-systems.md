@@ -3,6 +3,10 @@ title: "OS CH01 - Introduction to Operating Systems"
 date: 2026-02-21
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch01]
+permalink: /devlog/os-ch01-introduction-to-operating-systems/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 1
 excerpt: "Chapter 1 summary: 운영체제에 대한 소개시간으로 운영체제의 개념, 목표, 분류, 예시, 구조에 대해 다룬다."
 ---
 
@@ -32,7 +36,7 @@ excerpt: "Chapter 1 summary: 운영체제에 대한 소개시간으로 운영체
 - MS Windows<br>: MS사의 다중 작업용 GUI 기반 운영체제
 
 ## 4. 운영체제 구조 
-![운영체제 구조](/assets\images\ban-hyokyung-os\os_structure.png)
+![운영체제 구조](/assets/images/ban-hyokyung-os/os_structure.png)
 
 - CPU 스케줄링<br>: 여러 프로그램의 cpu요청에 cpu를 어떻게 할당할지
 - 메모리 관리<br>: 어떤 프로그램을 메모리에 올릴 것인지를 정한다. 메모리에 올려진 데이터들은 cpu가 바로 다룰 수 있다. 메모리에 없는 건 Disk에 보관되어있다. cpu가 Disk에서 데이터를 꺼낼때 시간이 더 오래 걸린다.

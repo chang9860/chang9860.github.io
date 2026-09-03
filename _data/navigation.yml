@@ -1,13 +1,13 @@
 main:
-  - title: "Portfolio"
-    url: /projects/
-  - title: "CV"
-    url: /cv/
+  - title: "Home"
+    url: /
   - title: "Research"
     url: /research/
+  - title: "Projects"
+    url: /projects/
   - title: "Devlog"
     url: /blog/
-  - title: "Categories"
+  - title: "CV"
+    url: /cv/
+  - title: "Topics"
     url: /categories/
-  - title: "Tags"
-    url: /tags/

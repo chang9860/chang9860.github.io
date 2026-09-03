@@ -1,15 +1,8 @@
 ---
-title: "Categories"
-layout: single
+title: "Topics"
+layout: categories
 permalink: /categories/
+author_profile: true
 ---
 
-{% for category in site.categories %}
-## {{ category[0] }}
-
-{% for post in category[1] %}
-- [{{ post.title }}]({{ post.url }})
-{% endfor %}
-
----
-{% endfor %}
+Browse writing by its main content section. For subject-level exploration, see the [tag index]({{ '/tags/' | relative_url }}).

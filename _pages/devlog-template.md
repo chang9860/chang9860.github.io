@@ -1,34 +1,43 @@
 ---
-title: "Devlog Template"
+title: "Devlog Writing Template"
 layout: single
 permalink: /devlog-template/
 author_profile: true
 ---
 
-Copy this template for each devlog post.
+Use this structure for study notes, implementation logs, debugging records, and engineering notes. The existing URL is retained for reference.
 
 ```md
 ---
-title: "Devlog: Week N - Topic"
+title: "Topic"
 date: YYYY-MM-DD
 categories: [Devlog]
-tags: [devlog, project-name]
-excerpt: "One-line summary of this update."
-project: "Project Name"
-sprint: "Week N"
+devlog_type: study-note
+tags: [subject, technology]
+series:
+series_order:
+excerpt: "A short summary of this entry."
 ---
 
-## Goal
-What was the target for this cycle?
+## Context
 
-## Work Done
-- What was implemented?
-- What was tested?
-- What changed?
+What prompted this entry?
 
-## Issue
-What blocked progress or created risk?
+## What I Learned or Changed
 
-## Next
-What is the immediate next step?
+- Key concept, implementation, or decision
+- What was tested
+- What changed
+
+## Problems and Debugging
+
+What failed, why it failed, and how it was resolved.
+
+## Takeaways
+
+What should be remembered or reused later?
+
+## Next Steps
+
+What follows from this work?
 ```

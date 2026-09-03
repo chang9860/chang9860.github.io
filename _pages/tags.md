@@ -1,15 +1,8 @@
 ---
 title: "Tags"
-layout: single
+layout: tags
 permalink: /tags/
+author_profile: true
 ---
 
-{% for tag in site.tags %}
-## {{ tag[0] }}
-
-{% for post in tag[1] %}
-- [{{ post.title }}]({{ post.url }})
-{% endfor %}
-
----
-{% endfor %}
+Tags describe subject areas and technologies across Research and Devlog entries. Return to the [category index]({{ '/categories/' | relative_url }}).

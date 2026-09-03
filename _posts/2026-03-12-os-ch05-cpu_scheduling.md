@@ -3,6 +3,10 @@ title: "OS CH05 - CPU Scheduling"
 date: 2026-03-12
 categories: [Devlog]
 tags: [os, study, ban-hyokyung-os, ch05]
+permalink: /devlog/os-ch05-cpu_scheduling/
+devlog_type: study-note
+series: ban-hyokyung-os
+series_order: 5
 excerpt: "Chapter 5 summary: CPU and I/O Bursts in Program Execution, CPU-burst Time의 분포, CPU Scheduler & Dispatcher, Scheduling Algorithms, Scheduling Criteria, FCFS(First- Come First-Served), SJF(Shortest-Job-First), Example of Non-Preemptive SJF, Example of Preemptive SJF, 다음 CPU Burst Time의 예측, Exponential Averaging, Priority Scheduling, Round Robin(RR), Example: RR with Time Quantum = 20, Turmaround Time Varies With Time Quantum"
 ---
 
@@ -46,10 +50,10 @@ CPU 스케줄링이 필요한 경우
 할당 시간이 너무 길면 FCFS처럼 되고 너무 작으면 context switch 오버헤드 발생
 
 * Multilevel Queue: 여러 개의 큐로 된 층으로 나누어 층 간 우선 순위도 부여한다. 각 큐마다 독립적인 스케줄링을 가진다. 
-![Multilevel_Queue](/assets\images\ban-hyokyung-os\multilevel_Queue.png)
+![Multilevel_Queue](/assets/images/ban-hyokyung-os/multilevel_Queue.png)
 
 * Multilevel Feedback Queue
-![Multilevel_Feedback_Queue](/assets\images\ban-hyokyung-os\multilevel_feedback_queue.png)
+![Multilevel_Feedback_Queue](/assets/images/ban-hyokyung-os/multilevel_feedback_queue.png)
 층 간 이동도 가능하게 하여 아래층의 starvation을 없애도록 함.<br>
 ex. 처음 들어온 프로세스는 맨 위 큐로 이동하고 한 칸씩 밑으로 내려간다. 이때 밑으로 갈 수록 할당되는 시간을 늘린다. 
 
