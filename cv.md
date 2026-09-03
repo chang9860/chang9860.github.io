@@ -11,11 +11,11 @@ Computer science student interested in understanding ideas through reading, impl
 
 ## Education
 
-Education details will be added here.
+GIST
 
 ## Experience
 
-Experience details will be added here.
+It will be soon.
 
 ## Selected Projects
 
